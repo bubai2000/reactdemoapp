@@ -30,6 +30,12 @@ export function List() {
         address: document.getElementById("address").value,
       },
     ]);
+    document.getElementById("houseId").value = "";
+    document.getElementById("houseName").value = "";
+    document.getElementById("address").value = "";
+  }
+  function remove(id) {
+    addHouses(houses.filter((house) => house.id !== id));
   }
   return (
     <>
@@ -47,6 +53,9 @@ export function List() {
             <tr key={id}>
               <td>{name}</td>
               <td>{address}</td>
+              <td>
+                <button onClick={() => remove(id)}>Remove</button>
+              </td>
             </tr>
           ))}
         </tbody>
